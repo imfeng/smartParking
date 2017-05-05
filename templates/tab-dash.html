@@ -1,0 +1,20 @@
+<ion-view view-title="Dashboard">
+  <ion-content class="padding">
+  <div class="list list-inset">
+
+  <div class="item item-input-inset">
+    <label class="item-input-wrapper">
+      <input ng-model="command.data" type="text" placeholder="請輸入訊息">
+    </label>
+    <button class="button button-small button-balanced" ng-click="send()">
+      Send
+    </button>
+  </div>
+
+      <div class="item" ng-repeat="message in messages">
+        <span style="font-weight: bold;">{{message.from}}：</span>{{message.content}}
+      </div>
+
+  </div>
+  </ion-content>
+</ion-view>

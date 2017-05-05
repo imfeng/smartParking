@@ -1,0 +1,37 @@
+<ion-view view-title="Account">
+    <ion-content>
+        <ion-list>
+            <div class="item item-divider">
+                藍芽狀態
+            </div>
+            <ion-toggle ng-model="status.enableBl">
+                Enable Bluetooth
+            </ion-toggle>
+            <a class="item item-icon-left" href="#" ng-show="status.enableBl">
+                <i class="icon ion-mic-a"></i> Connected Device
+                <span class="item-note">
+			      {{status.connectedDevice}}
+			    </span>
+            </a>
+            <button ng-click="disconnect()" class="button button-full button-dark" ng-show="status.isConnecetedDevice && status.enableBl">
+                取消連線
+            </button>
+        </ion-list>
+
+        <ion-list ng-show="status.enableBl">
+            <div class="item item-divider">
+                附近的藍芽清單
+            </div>
+            <ion-item class="item-icon-left" ng-repeat="device in bl_lists" ng-click="connectDevice($index)">
+                <i class="icon ion-mic-a"></i> 
+                	{{device.name}}
+                <span class="item-note">
+		      		{{device.address}}
+		    	</span>
+            </ion-item>
+            <button class="button button-block button-stable" ng-click="clickRefresh()">
+                重新搜尋
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-view>
